@@ -61,7 +61,12 @@ function App() {
       });
       console.log("API Response:", response.data);
       setTripData(response.data);
-      toast.success('Route parameters calculated successfully!');
+      if (response.data.flag_limit) {
+        toast.error('HOS limit exceeded. Please adjust your cycle time or route parameters.');
+      } else {
+        toast.success('Route parameters calculated successfully!');
+      }
+      
     } catch (err) {
       const msg = err.response?.data?.error || 'The server is currently unreachable. Please try again later.';
       toast.error(msg);
