@@ -4,7 +4,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import MapCard from './components/MapCard';
 import LogsAccordion from './components/LogsAccordion';
 import LoadingSpinner from './components/LoadingSpinner';
-import HOSRulesCard from './components/HOSRulesCard';
+
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
