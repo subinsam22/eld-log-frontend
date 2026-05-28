@@ -59,7 +59,7 @@ function App() {
         ...form,
         current_cycle_used: parseFloat(form.current_cycle_used),
       });
-      console.log("API Response:", response.data);
+      
       setTripData(response.data);
       if (response.data.flag_limit) {
         toast.error('HOS limit exceeded. Please adjust your cycle time or route parameters.');
@@ -68,9 +68,13 @@ function App() {
       }
       
     } catch (err) {
-      const msg = err.response?.data?.error || 'The server is currently unreachable. Please try again later.';
-      toast.error(msg);
-    } finally {
+       if (err.response?.status === 429) {
+        toast.error('Too many requests. Please wait a moment before trying again.');
+    }  else {
+        const msg = err.response?.data?.error || 'The server is currently unreachable. Please try again later.';
+        toast.error(msg);
+    }} 
+    finally {
       setLoading(false);
     }
   };
