@@ -61,9 +61,9 @@ function drawEldGrid(canvas, segments, onDutyHours, drivingHours, totalMiles, re
     const y = gridTop + rowIndex * rowHeight;
     const width = Math.max(2, x2 - x1);
     const height = rowHeight - 1;
-    if (status === 'off_duty') ctx.fillStyle = '#f1f5f9';
-    else if (status === 'driving') ctx.fillStyle = '#e0e7ff';
-    else ctx.fillStyle = '#fef3c7';
+    if (status === 'off_duty') ctx.fillStyle = '#20d729';
+    else if (status === 'driving') ctx.fillStyle = '#0e3fe0';
+    else ctx.fillStyle = '#f2fa00';
     ctx.fillRect(x1, y, width, height);
   }
   ctx.fillStyle = '#1f2937';

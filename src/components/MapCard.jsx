@@ -54,8 +54,8 @@ export default function MapCard({ geometry, waypoints, totalDistance, stops = []
 
   const positions = useMemo(() => decode(geometry, 5).map(([lat, lng]) => [lat, lng]), [geometry]);
   
-  // High-level interpolation transformation
-  // High-level interpolation transformation with Scale Correction
+ 
+
   const eventMarkers = useMemo(() => {
     const markers = [];
     if (!stops || stops.length === 0 || positions.length < 2) return markers;
@@ -69,7 +69,7 @@ export default function MapCard({ geometry, waypoints, totalDistance, stops = []
       );
     }
 
-    // 2. Create a scaling factor (Map Distance vs Backend Distance)
+    
     const scaleFactor = totalDistance > 0 ? (totalHaversineDist / totalDistance) : 1;
 
     let currentDist = 0;
@@ -137,7 +137,7 @@ export default function MapCard({ geometry, waypoints, totalDistance, stops = []
 
           {eventMarkers.map((marker, idx) => (
             <Marker key={`event-${idx}`} position={[marker.lat, marker.lng]} icon={marker.type === 'fuel' ? fuelIcon : breakIcon}>
-              <Popup>{marker.type === 'fuel' ? '⛽ Mandatory Fuel Stop' : '🛌 30-Min HOS Rest Break'}</Popup>
+              <Popup>{marker.type === 'fuel' ? ' Mandatory Fuel Stop' : ' 30-Min HOS Rest Break'}</Popup>
             </Marker>
           ))}
         </MapContainer>

@@ -125,8 +125,8 @@ export default function TripLogDocument({ form, tripData, canvasImages, totalCyc
         {/* Header Block */}
         <View style={styles.headerContainer}>
           <View>
-            <Text style={styles.title}>FMCSA HOS Manifest</Text>
-            <Text style={styles.subtitle}>Generated via Commercial Route Intelligence Engine</Text>
+            <Text style={styles.title}>ELD Manifest</Text>
+            <Text style={styles.subtitle}>Generated via LogiTrack ELD Planner</Text>
           </View>
         </View>
 
